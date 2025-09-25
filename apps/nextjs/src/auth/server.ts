@@ -1,6 +1,5 @@
 import "server-only";
 
-import { cache } from "react";
 import { headers } from "next/headers";
 
 import { initAuth } from "@acme/auth";
@@ -20,6 +19,5 @@ export const auth = initAuth({
   secret: env.AUTH_SECRET,
 });
 
-export const getSession = cache(async () =>
-  auth.api.getSession({ headers: await headers() }),
-);
+export const getSession = async () =>
+  auth.api.getSession({ headers: await headers() });
