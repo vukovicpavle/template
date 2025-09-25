@@ -3,7 +3,7 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "expo",
-  slug: "expo",
+  slug: "template",
   scheme: "expo",
   version: "0.1.0",
   orientation: "portrait",
@@ -55,4 +55,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       },
     ],
   ],
+  extra: {
+    eas: {
+      projectId: "8489eac2-0d35-4af7-a097-0bfd323f9e21",
+    },
+  },
+  owner: "vukovic.pavle",
 });
