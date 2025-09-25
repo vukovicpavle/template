@@ -63,6 +63,7 @@
     "SUPABASE_SERVICE_ROLE_KEY",
     "SUPABASE_URL",
     "VERCEL_OIDC_TOKEN",
+    "BLOB_READ_WRITE_TOKEN",
     "PORT"
   ],
   "globalPassThroughEnv": [
