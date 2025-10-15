@@ -1,9 +1,14 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
+
+import { StoreDemo } from "../components/store-demo";
 
 export default function Index() {
   return (
-    <View className="flex-1 items-center justify-center">
-      <Text className="text-2xl font-bold">Hello World</Text>
-    </View>
+    <ScrollView className="flex-1">
+      <View className="flex-1 items-center justify-center py-8">
+        <Text className="mb-6 text-2xl font-bold">Expo + Zustand</Text>
+        <StoreDemo />
+      </View>
+    </ScrollView>
   );
 }
