@@ -163,6 +163,9 @@ importers:
       '@acme/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@acme/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@acme/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
@@ -208,6 +211,9 @@ importers:
       '@acme/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@acme/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@acme/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -413,6 +419,37 @@ importers:
       prettier:
         specifier: 'catalog:'
         version: 3.6.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.2
+
+  packages/store:
+    dependencies:
+      zustand:
+        specifier: ^5.0.8
+        version: 5.0.8(@types/react@19.1.13)(react@19.0.0)(use-sync-external-store@1.5.0(react@19.0.0))
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@acme/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@types/react':
+        specifier: catalog:react19
+        version: 19.1.13
+      eslint:
+        specifier: 'catalog:'
+        version: 9.35.0(jiti@2.5.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+      react:
+        specifier: catalog:react19
+        version: 19.0.0
       typescript:
         specifier: 'catalog:'
         version: 5.9.2
@@ -7638,6 +7675,24 @@ packages:
 
   zod@4.1.5:
     resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
+
+  zustand@5.0.8:
+    resolution: {integrity: sha512-gyPKpIaxY9XcO2vSMrLbiER7QMAMGOQZVRdJ6Zi782jkbzZygq5GI9nG8g+sMgitRtndwaBSl7uiqC49o1SSiw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
 snapshots:
 
@@ -15745,3 +15800,9 @@ snapshots:
   zod@3.25.49: {}
 
   zod@4.1.5: {}
+
+  zustand@5.0.8(@types/react@19.1.13)(react@19.0.0)(use-sync-external-store@1.5.0(react@19.0.0)):
+    optionalDependencies:
+      '@types/react': 19.1.13
+      react: 19.0.0
+      use-sync-external-store: 1.5.0(react@19.0.0)
