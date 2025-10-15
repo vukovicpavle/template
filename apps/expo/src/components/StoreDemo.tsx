@@ -28,13 +28,13 @@ export function StoreDemo() {
   };
 
   return (
-    <View className="w-full max-w-md space-y-4 p-4">
+    <View className="w-full max-w-md gap-4 p-4">
       <Text className="mb-4 text-xl font-bold">Zustand Store Demo</Text>
 
       {/* Counter Section */}
-      <View className="space-y-2">
+      <View className="gap-2">
         <Text className="text-lg font-semibold">Counter: {count}</Text>
-        <View className="flex-row space-x-2">
+        <View className="flex-row gap-2">
           <TouchableOpacity
             onPress={increment}
             className="rounded bg-blue-500 px-4 py-2"
@@ -57,14 +57,14 @@ export function StoreDemo() {
       </View>
 
       {/* User Section */}
-      <View className="space-y-2">
+      <View className="gap-2">
         <Text className="text-lg font-semibold">
           User: {user ? user.name : "Not logged in"}
         </Text>
         {user && (
           <Text className="text-sm text-gray-600">Email: {user.email}</Text>
         )}
-        <View className="flex-row space-x-2">
+        <View className="flex-row gap-2">
           <TouchableOpacity
             onPress={handleSetUser}
             className="rounded bg-green-500 px-4 py-2"
@@ -81,7 +81,7 @@ export function StoreDemo() {
       </View>
 
       {/* Theme Section */}
-      <View className="space-y-2">
+      <View className="gap-2">
         <Text className="text-lg font-semibold">Theme: {theme}</Text>
         <TouchableOpacity
           onPress={toggleTheme}
@@ -92,7 +92,7 @@ export function StoreDemo() {
       </View>
 
       {/* Loading Section */}
-      <View className="space-y-2">
+      <View className="gap-2">
         <Text className="text-lg font-semibold">
           Loading: {isLoading ? "Yes" : "No"}
         </Text>
