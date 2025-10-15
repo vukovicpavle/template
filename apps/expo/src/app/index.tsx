@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from "react-native";
 
-import { StoreDemo } from "../components/StoreDemo";
+import { StoreDemo } from "../components/store-demo";
 
 export default function Index() {
   return (
