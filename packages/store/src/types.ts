@@ -8,7 +8,7 @@ export interface User {
 
 export interface AppState {
   user: User | null;
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   isLoading: boolean;
 }
 
@@ -23,7 +23,7 @@ export interface UserActions {
 }
 
 export interface AppActions {
-  setTheme: (theme: 'light' | 'dark') => void;
+  setTheme: (theme: "light" | "dark") => void;
   setLoading: (loading: boolean) => void;
 }
 

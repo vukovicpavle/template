@@ -1,6 +1,7 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import type { User, UserActions } from './types';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+import type { User } from "./types";
 
 interface UserStore {
   user: User | null;
@@ -16,7 +17,7 @@ export const useUserStore = create<UserStore>()(
       clearUser: () => set({ user: null }),
     }),
     {
-      name: 'acme-user-storage', // unique name for localStorage key
-    }
-  )
+      name: "acme-user-storage", // unique name for localStorage key
+    },
+  ),
 );

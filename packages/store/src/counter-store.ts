@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 interface CounterStore {
   count: number;
@@ -11,15 +11,17 @@ interface CounterStore {
 
 export const useCounterStore = create<CounterStore>()(
   devtools(
-    (set, get) => ({
+    (set) => ({
       count: 0,
-      increment: () => set((state) => ({ count: state.count + 1 }), false, 'increment'),
-      decrement: () => set((state) => ({ count: state.count - 1 }), false, 'decrement'),
-      reset: () => set({ count: 0 }, false, 'reset'),
-      setCount: (count) => set({ count }, false, 'setCount'),
+      increment: () =>
+        set((state) => ({ count: state.count + 1 }), false, "increment"),
+      decrement: () =>
+        set((state) => ({ count: state.count - 1 }), false, "decrement"),
+      reset: () => set({ count: 0 }, false, "reset"),
+      setCount: (count) => set({ count }, false, "setCount"),
     }),
     {
-      name: 'counter-store', // name for devtools
-    }
-  )
+      name: "counter-store", // name for devtools
+    },
+  ),
 );

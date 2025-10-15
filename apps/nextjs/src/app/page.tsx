@@ -1,5 +1,5 @@
-import { HydrateClient, prefetch, trpc } from "~/trpc/server";
 import { StoreDemo } from "~/components/StoreDemo";
+import { HydrateClient, prefetch, trpc } from "~/trpc/server";
 
 export default function HomePage() {
   prefetch(trpc.post.all.queryOptions());

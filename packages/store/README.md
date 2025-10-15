@@ -23,11 +23,11 @@ pnpm add @acme/store
 ### Counter Store (with DevTools)
 
 ```tsx
-import { useCounterStore } from '@acme/store';
+import { useCounterStore } from "@acme/store";
 
 function CounterComponent() {
   const { count, increment, decrement, reset } = useCounterStore();
-  
+
   return (
     <div>
       <p>Count: {count}</p>
@@ -42,21 +42,20 @@ function CounterComponent() {
 ### User Store (with Persistence)
 
 ```tsx
-import { useUser } from '@acme/store';
 // or
-import { useUserStore } from '@acme/store';
+import { useUser, useUserStore } from "@acme/store";
 
 function UserComponent() {
   const { user, setUser, clearUser } = useUser();
-  
+
   const handleLogin = () => {
     setUser({
-      id: '1',
-      name: 'John Doe',
-      email: 'john@example.com',
+      id: "1",
+      name: "John Doe",
+      email: "john@example.com",
     });
   };
-  
+
   return (
     <div>
       {user ? (
@@ -75,25 +74,22 @@ function UserComponent() {
 ### App Settings Store (with Persistence)
 
 ```tsx
-import { useTheme, useLoading } from '@acme/store';
 // or
-import { useAppStore } from '@acme/store';
+import { useAppStore, useLoading, useTheme } from "@acme/store";
 
 function AppSettingsComponent() {
   const { theme, setTheme } = useTheme();
   const { isLoading, setLoading } = useLoading();
-  
+
   return (
     <div>
       <p>Current theme: {theme}</p>
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
         Toggle Theme
       </button>
-      
-      <p>Loading: {isLoading ? 'Yes' : 'No'}</p>
-      <button onClick={() => setLoading(!isLoading)}>
-        Toggle Loading
-      </button>
+
+      <p>Loading: {isLoading ? "Yes" : "No"}</p>
+      <button onClick={() => setLoading(!isLoading)}>Toggle Loading</button>
     </div>
   );
 }
@@ -104,7 +100,7 @@ function AppSettingsComponent() {
 ### Available Stores
 
 1. **useUserStore**: Manages user authentication state with localStorage persistence
-2. **useAppStore**: Manages app-wide settings (theme, loading) with localStorage persistence  
+2. **useAppStore**: Manages app-wide settings (theme, loading) with localStorage persistence
 3. **useCounterStore**: Simple counter example with Redux DevTools integration
 
 ### Convenience Hooks
@@ -121,6 +117,7 @@ This package works seamlessly across:
 - ✅ **React Native (Expo)** (Mobile)
 
 The persistence middleware automatically adapts to the platform:
+
 - Web: Uses `localStorage`
 - React Native: Uses `AsyncStorage` (automatically detected)
 
@@ -129,7 +126,7 @@ The persistence middleware automatically adapts to the platform:
 Full TypeScript support with exported types:
 
 ```tsx
-import type { User, AppState, CounterState } from '@acme/store';
+import type { AppState, CounterState, User } from "@acme/store";
 ```
 
 ## Development
