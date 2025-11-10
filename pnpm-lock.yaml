@@ -87,6 +87,9 @@ importers:
       '@expo/metro-config':
         specifier: ^0.20.14
         version: 0.20.14
+      '@expo/vector-icons':
+        specifier: ^15.0.3
+        version: 15.0.3(expo-font@13.3.1(expo@53.0.9(@babel/core@7.28.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)))(bufferutil@4.0.8)(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0)
       '@legendapp/list':
         specifier: ^2.0.2
         version: 2.0.2(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0)
@@ -256,6 +259,9 @@ importers:
       react-dom:
         specifier: catalog:react19
         version: 19.0.0(react@19.0.0)
+      react-icons:
+        specifier: ^5.5.0
+        version: 5.5.0(react@19.0.0)
       superjson:
         specifier: 2.2.2
         version: 2.2.2
@@ -1959,6 +1965,13 @@ packages:
     resolution: {integrity: sha512-7T09UE9h8QDTsUeMGymB4i+iqvtEeaO5VvUjryFB4tugDTG/bkzViWA74hm5pfjjDEhYMXWaX112mcvhccmIwQ==}
     peerDependencies:
       expo-font: '*'
+      react: '*'
+      react-native: '*'
+
+  '@expo/vector-icons@15.0.3':
+    resolution: {integrity: sha512-SBUyYKphmlfUBqxSfDdJ3jAdEVSALS2VUPOUyqn48oZmb2TL/O7t7/PQm5v4NQujYEPLPMTLn9KVw6H7twwbTA==}
+    peerDependencies:
+      expo-font: '>=14.0.4'
       react: '*'
       react-native: '*'
 
@@ -6761,6 +6774,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
+  react-icons@5.5.0:
+    resolution: {integrity: sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==}
+    peerDependencies:
+      react: '*'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -9577,6 +9595,12 @@ snapshots:
   '@expo/sudo-prompt@9.3.2': {}
 
   '@expo/vector-icons@14.1.0(expo-font@13.3.1(expo@53.0.9(@babel/core@7.28.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)))(bufferutil@4.0.8)(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      expo-font: 13.3.1(expo@53.0.9(@babel/core@7.28.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)))(bufferutil@4.0.8)(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-native: 0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)
+
+  '@expo/vector-icons@15.0.3(expo-font@13.3.1(expo@53.0.9(@babel/core@7.28.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)))(bufferutil@4.0.8)(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0)':
     dependencies:
       expo-font: 13.3.1(expo@53.0.9(@babel/core@7.28.4)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0)))(bufferutil@4.0.8)(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.8)(react@19.0.0))(react@19.0.0))(react@19.0.0)
       react: 19.0.0
@@ -15023,6 +15047,10 @@ snapshots:
       react: 19.0.0
 
   react-hook-form@7.62.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+
+  react-icons@5.5.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 

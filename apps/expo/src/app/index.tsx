@@ -1,4 +1,5 @@
 import { ScrollView, Text, View } from "react-native";
+import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 import { RNReusablesDemo } from "../components/rn-reusables-demo";
 import { StoreDemo } from "../components/store-demo";
@@ -7,7 +8,14 @@ export default function Index() {
   return (
     <ScrollView className="flex-1">
       <View className="flex-1 items-center justify-center gap-8 py-8">
-        <Text className="mb-6 text-2xl font-bold">Expo + Zustand</Text>
+        <View className="mb-6 items-center gap-4">
+          <Text className="text-2xl font-bold">Expo + Zustand</Text>
+          <View className="flex-row items-center gap-4">
+            <Ionicons name="rocket" size={32} color="#3b82f6" />
+            <MaterialIcons name="favorite" size={32} color="#ef4444" />
+            <FontAwesome name="star" size={32} color="#f59e0b" />
+          </View>
+        </View>
         <StoreDemo />
         <View className="w-full border-t border-border pt-8">
           <RNReusablesDemo />
