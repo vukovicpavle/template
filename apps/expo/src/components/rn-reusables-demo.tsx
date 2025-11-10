@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 
 import { Button, Input } from "./ui";
 
@@ -15,8 +15,7 @@ export function RNReusablesDemo() {
   };
 
   return (
-    <ScrollView className="flex-1">
-      <View className="flex-1 items-center justify-center gap-6 p-6">
+    <View className="w-full items-center justify-center gap-6 p-6">
         <Text className="mb-4 text-2xl font-bold">
           React Native Reusables Demo
         </Text>
@@ -83,7 +82,6 @@ export function RNReusablesDemo() {
             </Button>
           </View>
         </View>
-      </View>
-    </ScrollView>
+    </View>
   );
 }
