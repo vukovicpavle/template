@@ -27,6 +27,22 @@ npx create-turbo@latest -e https://github.com/t3-oss/create-t3-turbo
 
 Ever wondered how to migrate your T3 application into a monorepo? Stop right here! This is the perfect starter repo to get you running with the perfect stack!
 
+## Documentation
+
+This repository includes comprehensive documentation for both AI agents and human developers:
+
+- **[docs/README.md](./docs/README.md)** - Documentation index and quick links
+- **[docs/AI_CONTEXT.md](./docs/AI_CONTEXT.md)** - AI agent context and coding conventions
+- **[docs/DEVELOPER_GUIDE.md](./docs/DEVELOPER_GUIDE.md)** - Developer guide and workflow
+- **[docs/examples/](./docs/examples/)** - PR templates, module layouts, and prompt snippets
+
+The project also includes:
+- **`.cursorrules`** - Primary AI agent context file
+- **`.editorconfig`** - Editor configuration
+- **`.commitlintrc.json`** - Commit message conventions (Conventional Commits)
+
+See the [documentation directory](./docs/) for detailed guides and examples.
+
 It uses [Turborepo](https://turborepo.com) and contains:
 
 ```text
