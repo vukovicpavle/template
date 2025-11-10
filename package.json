@@ -24,10 +24,13 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "commitlint": "commitlint --edit"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@turbo/gen": "^2.5.6",
     "prettier": "catalog:",
     "turbo": "^2.5.6",
