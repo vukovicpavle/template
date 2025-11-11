@@ -1,5 +1,5 @@
 import { ScrollView, Text, View } from "react-native";
-import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 import { RNReusablesDemo } from "../components/rn-reusables-demo";
 import { StoreDemo } from "../components/store-demo";
