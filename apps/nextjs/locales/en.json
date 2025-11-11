@@ -1,0 +1,15 @@
+{
+  "common": {
+    "title": "Create T3 Turbo",
+    "description": "Simple monorepo with shared backend for web & mobile apps"
+  },
+  "home": {
+    "title": "Next.js + Zustand",
+    "welcome": "Welcome to the T3 Turbo monorepo!"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "spanish": "Spanish"
+  }
+}
