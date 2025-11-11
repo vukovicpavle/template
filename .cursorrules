@@ -131,21 +131,72 @@ Each package should have:
 
 ## Commit Messages
 
-Use [Conventional Commits](https://www.conventionalcommits.org/):
-- `feat:` - New feature
-- `fix:` - Bug fix
-- `docs:` - Documentation
-- `style:` - Formatting
-- `refactor:` - Code restructuring
-- `test:` - Tests
-- `chore:` - Maintenance
+**MANDATORY**: All commit messages MUST follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. The agent MUST enforce this format for every commit.
 
-Format: `<type>(<scope>): <description>`
+### Commit Message Format
 
-Examples:
+**Required Format**: `<type>(<scope>): <description>`
+
+Where:
+- `<type>`: One of the commit types below (REQUIRED)
+- `<scope>`: Optional package/app name (e.g., `api`, `ui`, `nextjs`, `expo`, `cursor`)
+- `<description>`: Clear, imperative-mood description (REQUIRED)
+
+### Supported Commit Types
+
+The following commit types are supported per the Conventional Commits specification:
+
+- **`feat`**: A new feature (triggers minor version bump)
+- **`fix`**: A bug fix (triggers patch version bump)
+- **`docs`**: Documentation only changes
+- **`style`**: Code style changes (formatting, missing semicolons, etc.) that do not affect code meaning
+- **`refactor`**: Code restructuring that neither fixes a bug nor adds a feature
+- **`perf`**: Performance improvements
+- **`test`**: Adding or updating tests
+- **`build`**: Changes to build system or external dependencies
+- **`ci`**: Changes to CI configuration files and scripts
+- **`chore`**: Other changes that don't modify src or test files (maintenance tasks)
+- **`revert`**: Reverts a previous commit
+
+### Enforcement Rules
+
+1. **ALWAYS** format commit messages using the Conventional Commits format
+2. **ALWAYS** use one of the supported commit types
+3. **ALWAYS** use imperative mood in the description (e.g., "add" not "added" or "adds")
+4. **ALWAYS** keep the description concise but descriptive
+5. **NEVER** use periods at the end of the description
+6. **NEVER** commit without a properly formatted message
+
+### Examples
+
+✅ **Valid Commit Messages:**
 - `feat(api): add user profile endpoint`
 - `fix(ui): resolve button hover state`
 - `docs: update README with setup instructions`
+- `chore(cursor): enforce Conventional Commit rules for Cursor Agent`
+- `refactor(store): simplify counter store implementation`
+- `test(api): add unit tests for user router`
+- `perf(nextjs): optimize image loading`
+- `build: update dependencies to latest versions`
+- `ci: add GitHub Actions workflow for linting`
+- `style: format code with Prettier`
+- `revert: revert "feat(api): add user profile endpoint"`
+
+❌ **Invalid Commit Messages:**
+- `Added login button` (missing type)
+- `fix: Fixed the bug` (past tense, period at end)
+- `update readme` (missing type, lowercase)
+- `feat: add feature` (too vague)
+- `chore: updates` (not imperative mood)
+
+### Agent Behavior
+
+When committing changes:
+1. **Analyze** the changes to determine the appropriate commit type
+2. **Identify** the scope (package/app) if applicable
+3. **Generate** a commit message following the format: `<type>(<scope>): <description>`
+4. **Validate** the message before committing
+5. **Suggest** corrections if the user provides an invalid format
 
 ## Observability
 
