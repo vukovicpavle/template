@@ -5,9 +5,9 @@ import { cn } from "@acme/ui";
 import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
 import { Toaster } from "@acme/ui/toast";
 
+import type { Locale } from "~/i18n";
 import { LanguageSwitcher } from "~/components/language-switcher";
 import { env } from "~/env";
-import type { Locale } from "~/i18n";
 import { getTranslations } from "~/i18n";
 import { TRPCReactProvider } from "~/trpc/react";
 

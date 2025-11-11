@@ -1,8 +1,8 @@
 import { FaHeart, FaRocket, FaStar } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi2";
 
-import { StoreDemo } from "~/components/store-demo";
 import type { Locale } from "~/i18n";
+import { StoreDemo } from "~/components/store-demo";
 import { getTranslations } from "~/i18n";
 import { HydrateClient, prefetch, trpc } from "~/trpc/server";
 

@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 import type { Locale } from "~/i18n/config";
 import { defaultLocale, locales } from "~/i18n/config";

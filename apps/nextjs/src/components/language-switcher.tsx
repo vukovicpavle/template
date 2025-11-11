@@ -18,7 +18,7 @@ export function LanguageSwitcher({ currentLocale }: { currentLocale: Locale }) {
   };
 
   return (
-    <div className="absolute top-4 right-4 flex gap-2 rounded-lg border bg-background p-2 shadow-md">
+    <div className="absolute right-4 top-4 flex gap-2 rounded-lg border bg-background p-2 shadow-md">
       {locales.map((locale) => (
         <button
           key={locale}

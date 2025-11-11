@@ -35,7 +35,8 @@ const translations: Record<Locale, Translations> = {
   es: {
     common: {
       title: "Create T3 Turbo",
-      description: "Monorepo simple con backend compartido para aplicaciones web y móviles",
+      description:
+        "Monorepo simple con backend compartido para aplicaciones web y móviles",
     },
     home: {
       title: "Next.js + Zustand",
