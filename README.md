@@ -186,6 +186,21 @@ To add a new package, simply run `pnpm turbo gen init` in the monorepo root. Thi
 
 The generator sets up the `package.json`, `tsconfig.json` and a `index.ts`, as well as configures all the necessary configurations for tooling around your package such as formatting, linting and typechecking. When the package is created, you're ready to go build out the package.
 
+## Code Quality
+
+This project enforces code quality through automated tools:
+
+- **Formatting**: Code is automatically formatted using Prettier before each commit via a Git pre-commit hook. If formatting changes are made during commit, the commit will be aborted so you can review the changes.
+- **Linting**: ESLint checks code quality across all workspaces.
+- **Type Checking**: TypeScript ensures type safety throughout the monorepo.
+
+You can run these checks manually:
+```bash
+pnpm format:fix  # Format code
+pnpm lint:fix    # Fix linting issues
+pnpm typecheck   # Check types
+```
+
 ## FAQ
 
 ### Does the starter include Solito?

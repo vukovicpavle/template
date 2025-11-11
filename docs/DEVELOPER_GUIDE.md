@@ -76,6 +76,8 @@ This guide is for human developers working in this T3 Turbo monorepo. It complem
    pnpm format:fix
    pnpm typecheck
    ```
+   
+   > **Note**: Code formatting is automatically applied via a Git pre-commit hook. If formatting changes are made during commit, the commit will be aborted. Review the formatted changes and commit again.
 
 5. **Commit with conventional format**:
    ```bash
