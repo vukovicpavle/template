@@ -22,7 +22,10 @@ export function getDeviceLocale(): SupportedLocale {
   const deviceLocales = Localization.getLocales();
   const deviceLocale = deviceLocales[0]?.languageCode;
 
-  if (deviceLocale && SUPPORTED_LOCALES.includes(deviceLocale as SupportedLocale)) {
+  if (
+    deviceLocale &&
+    SUPPORTED_LOCALES.includes(deviceLocale as SupportedLocale)
+  ) {
     return deviceLocale as SupportedLocale;
   }
 

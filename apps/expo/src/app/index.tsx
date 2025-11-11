@@ -1,9 +1,9 @@
 import { ScrollView, Text, View } from "react-native";
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
+import { useTranslation } from "~/hooks/useTranslation";
 import { RNReusablesDemo } from "../components/rn-reusables-demo";
 import { StoreDemo } from "../components/store-demo";
-import { useTranslation } from "~/hooks/useTranslation";
 
 export default function Index() {
   const { t, locale } = useTranslation();
