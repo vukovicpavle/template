@@ -1,0 +1,18 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "appTitle": "Expo + Zustand",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "home": {
+    "title": "Expo + Zustand",
+    "subtitle": "Welcome to the Expo app with internationalization support",
+    "description": "This app demonstrates i18n capabilities using expo-localization"
+  },
+  "demo": {
+    "store": "Store Demo",
+    "components": "Component Demo"
+  }
+}
