@@ -22,3 +22,7 @@ type RouterOutputs = inferRouterOutputs<AppRouter>;
 
 export { createTRPCContext, appRouter };
 export type { AppRouter, RouterInputs, RouterOutputs };
+
+// Email service exports
+export { sendEmail, sendTextEmail, sendHtmlEmail } from "./email";
+export type { SendEmailOptions, SendEmailResult } from "./email";
