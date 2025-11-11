@@ -1,4 +1,4 @@
-import { FaRocket, FaHeart, FaStar } from "react-icons/fa";
+import { FaHeart, FaRocket, FaStar } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi2";
 
 import { StoreDemo } from "~/components/store-demo";
