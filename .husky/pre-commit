@@ -1,2 +1,14 @@
 #!/usr/bin/env sh
-exit 0
+# Temporary bypass for deployment
+[ "$CI" = "true" ] && exit 0
+[ -f "$GIT_DIR/../.husky/_/husky.sh" ] && . "$GIT_DIR/../.husky/_/husky.sh"
+
+# Run formatting on all workspaces
+pnpm format:fix
+
+# Check if formatting modified any files
+if [ -n "$(git status --porcelain)" ]; then
+  echo "⚠️  Code formatting was applied. Please review the changes and commit again."
+  git add -A
+  exit 1
+fi
