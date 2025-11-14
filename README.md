@@ -39,7 +39,6 @@ This repository includes comprehensive documentation for both AI agents and huma
 The project also includes:
 - **`.cursorrules`** - Primary AI agent context file
 - **`.editorconfig`** - Editor configuration
-- **`.commitlintrc.json`** - Commit message conventions (Conventional Commits)
 
 See the [documentation directory](./docs/) for detailed guides and examples.
 

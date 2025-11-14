@@ -36,7 +36,6 @@ This directory contains comprehensive documentation for the T3 Turbo monorepo, i
 
 - **`.cursorrules`** - Primary AI agent context (root directory)
 - **`.editorconfig`** - Editor configuration
-- **`.commitlintrc.json`** - Commit message linting rules
 
 ### Key Commands
 
