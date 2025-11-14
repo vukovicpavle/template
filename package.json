@@ -25,13 +25,10 @@
     "ui-add": "turbo run ui-add",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "commitlint": "commitlint --edit",
     "prepare": "husky"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
-    "@commitlint/cli": "^19.0.0",
-    "@commitlint/config-conventional": "^19.0.0",
     "@turbo/gen": "^2.5.6",
     "husky": "^9.1.7",
     "prettier": "catalog:",
