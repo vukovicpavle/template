@@ -209,4 +209,3 @@ export const auth = betterAuth({
 ## License
 
 MIT
-
