@@ -2,7 +2,7 @@ import "server-only";
 
 import { headers } from "next/headers";
 
-import { initAuth } from "@acme/auth";
+import { initAuth, sendPhoneOTP } from "@acme/auth";
 import { createMagicLinkEmailSender } from "@acme/auth/magic-link-email";
 import { sendEmail } from "@acme/email";
 
@@ -24,6 +24,13 @@ export const auth = initAuth({
   baseUrl,
   productionUrl: `https://${env.VERCEL_PROJECT_PRODUCTION_URL ?? "turbo.t3.gg"}`,
   secret: env.AUTH_SECRET,
+  sendOTP: async ({ phoneNumber, code }) => {
+    await sendPhoneOTP(phoneNumber, code, {
+      twilioAccountSid: env.TWILIO_ACCOUNT_SID,
+      twilioAuthToken: env.TWILIO_AUTH_TOKEN,
+      twilioPhoneNumber: env.TWILIO_PHONE_NUMBER,
+    });
+  },
   sendMagicLink: async (data) => {
     await magicLinkEmailSender({
       to: data.email,
