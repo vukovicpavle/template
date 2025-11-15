@@ -6,7 +6,6 @@ Email sending package using [Resend](https://resend.com/) for transactional and 
 
 - 📧 Simple and type-safe email sending
 - 🔒 Secure API key management via environment variables
-- 📝 Pre-built templates for common use cases (Magic Links, Notifications)
 - ✅ Error handling and logging
 - 🎨 HTML and plain text email support
 
@@ -54,43 +53,7 @@ if (result.success) {
 }
 ```
 
-### Test Email
-
-```typescript
-import { sendTestEmail } from "@acme/email";
-
-const result = await sendTestEmail(
-  "recipient@example.com",
-  "noreply@yourdomain.com",
-);
-```
-
-### Magic Link Email (Authentication)
-
-```typescript
-import { sendMagicLinkEmail } from "@acme/email";
-
-const result = await sendMagicLinkEmail(
-  "user@example.com",
-  "noreply@yourdomain.com",
-  "https://yourdomain.com/auth/verify?token=abc123",
-);
-```
-
-### Notification Email
-
-```typescript
-import { sendNotificationEmail } from "@acme/email";
-
-const result = await sendNotificationEmail(
-  "user@example.com",
-  "noreply@yourdomain.com",
-  "New Message Received",
-  "You have received a new message from John Doe.",
-);
-```
-
-## Advanced Options
+### Advanced Options
 
 The `sendEmail` function supports additional options:
 
@@ -105,15 +68,6 @@ await sendEmail({
   cc: "manager@yourdomain.com", // Optional
   bcc: "archive@yourdomain.com", // Optional
 });
-```
-
-## Testing
-
-Run the test script to verify your setup:
-
-```bash
-# From the email package directory
-RESEND_API_KEY=your_key node test-email.js recipient@example.com sender@yourdomain.com
 ```
 
 ## Important Notes
@@ -153,7 +107,7 @@ The package logs email operations to the console:
 // packages/api/src/router/email.ts
 import { z } from "zod/v4";
 
-import { sendNotificationEmail } from "@acme/email";
+import { sendEmail } from "@acme/email";
 
 import { protectedProcedure } from "../trpc";
 
@@ -161,17 +115,18 @@ export const emailRouter = {
   sendNotification: protectedProcedure
     .input(
       z.object({
-        title: z.string(),
-        message: z.string(),
+        to: z.string().email(),
+        subject: z.string(),
+        html: z.string(),
       }),
     )
-    .mutation(async ({ ctx, input }) => {
-      const result = await sendNotificationEmail(
-        ctx.session.user.email,
-        "noreply@yourdomain.com",
-        input.title,
-        input.message,
-      );
+    .mutation(async ({ input }) => {
+      const result = await sendEmail({
+        to: input.to,
+        from: "noreply@yourdomain.com",
+        subject: input.subject,
+        html: input.html,
+      });
 
       if (!result.success) {
         throw new Error(result.error);
@@ -186,7 +141,7 @@ export const emailRouter = {
 
 ```typescript
 // packages/auth/src/index.ts
-import { sendMagicLinkEmail } from "@acme/email";
+import { sendEmail } from "@acme/email";
 
 // Configure Better Auth with email sender
 export const auth = betterAuth({
@@ -194,7 +149,12 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     sendResetPassword: async ({ user, url }) => {
-      await sendMagicLinkEmail(user.email, "noreply@yourdomain.com", url);
+      await sendEmail({
+        to: user.email,
+        from: "noreply@yourdomain.com",
+        subject: "Reset Your Password",
+        html: `<p>Click <a href="${url}">here</a> to reset your password.</p>`,
+      });
     },
   },
 });
