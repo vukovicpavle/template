@@ -17,6 +17,10 @@ export const env = createEnv({
    */
   server: {
     POSTGRES_URL: z.string().url(),
+    // Optional Twilio configuration for phone number authentication
+    TWILIO_ACCOUNT_SID: z.string().optional(),
+    TWILIO_AUTH_TOKEN: z.string().optional(),
+    TWILIO_PHONE_NUMBER: z.string().optional(),
   },
 
   /**
