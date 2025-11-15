@@ -2,7 +2,7 @@ import type { BetterAuthOptions } from "better-auth";
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { oAuthProxy } from "better-auth/plugins";
+import { oAuthProxy, username } from "better-auth/plugins";
 
 import { db } from "@acme/db/client";
 
@@ -18,6 +18,7 @@ export function initAuth(options: {
     baseURL: options.baseUrl,
     secret: options.secret,
     plugins: [
+      username(),
       oAuthProxy({
         /**
          * Auto-inference blocked by https://github.com/better-auth/better-auth/pull/2891
