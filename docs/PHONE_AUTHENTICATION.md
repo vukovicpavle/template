@@ -78,7 +78,7 @@ import { authClient } from "~/auth/client";
 // Verify OTP and sign in
 async function verifyAndSignIn(phoneNumber: string, code: string) {
   try {
-    await authClient.phoneNumber.verifyOtp({
+    await authClient.phoneNumber.verify({
       phoneNumber: phoneNumber,
       code: code,
     });
@@ -104,7 +104,7 @@ await authClient.phoneNumber.sendOtp({
 });
 
 // Verify OTP
-await authClient.phoneNumber.verifyOtp({
+await authClient.phoneNumber.verify({
   phoneNumber: "+1234567890",
   code: "123456",
 });
@@ -166,7 +166,7 @@ export function PhoneSignIn() {
     setLoading(true);
     
     try {
-      await authClient.phoneNumber.verifyOtp({ phoneNumber, code });
+      await authClient.phoneNumber.verify({ phoneNumber, code });
       // User is now signed in
       window.location.href = "/dashboard";
     } catch (error) {
@@ -342,12 +342,12 @@ await authClient.phoneNumber.sendOtp({
 });
 ```
 
-#### `authClient.phoneNumber.verifyOtp()`
+#### `authClient.phoneNumber.verify()`
 
 Verify OTP and sign in.
 
 ```typescript
-await authClient.phoneNumber.verifyOtp({
+await authClient.phoneNumber.verify({
   phoneNumber: string,
   code: string, // 6-digit code
 });
