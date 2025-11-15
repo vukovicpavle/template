@@ -6,6 +6,7 @@
     ".": "./src/index.ts",
     "./middleware": "./src/middleware.ts",
     "./client": "./src/client.ts",
+    "./magic-link-email": "./src/magic-link-email.ts",
     "./env": "./env.ts"
   },
   "license": "MIT",
@@ -24,6 +25,7 @@
     "next": "^15.5.2",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
+    "twilio": "^5.10.5",
     "zod": "catalog:"
   },
   "devDependencies": {

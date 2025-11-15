@@ -1,7 +1,11 @@
 import * as SecureStore from "expo-secure-store";
 import { expoClient } from "@better-auth/expo/client";
+import {
+  magicLinkClient,
+  phoneNumberClient,
+  usernameClient,
+} from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/react";
-import { usernameClient } from "better-auth/client/plugins";
 
 import { getBaseUrl } from "./base-url";
 
@@ -14,5 +18,7 @@ export const authClient = createAuthClient({
       storagePrefix: "expo",
       storage: SecureStore,
     }),
+    phoneNumberClient(),
+    magicLinkClient(),
   ],
 });

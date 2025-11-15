@@ -1,9 +1,12 @@
-import { usernameClient } from "better-auth/client/plugins";
+import {
+  magicLinkClient,
+  phoneNumberClient,
+  usernameClient,
+} from "better-auth/client/plugins";
+import { createAuthClient } from "better-auth/react";
 
-/**
- * Export client-side plugins for Better Auth
- * 
- * This file exports the username plugin for use with createAuthClient
- * on the client side (both Next.js and Expo).
- */
-export { usernameClient };
+export const authClient = createAuthClient({
+  plugins: [usernameClient(), magicLinkClient(), phoneNumberClient()],
+});
+
+export { magicLinkClient, phoneNumberClient, usernameClient };
