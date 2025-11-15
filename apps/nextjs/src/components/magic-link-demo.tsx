@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HiEnvelope, HiCheckCircle } from "react-icons/hi2";
+import { HiCheckCircle, HiEnvelope } from "react-icons/hi2";
 
 import { Button } from "@acme/ui/button";
 import { Input } from "@acme/ui/input";
@@ -32,9 +32,7 @@ export function MagicLinkDemo() {
       });
 
       setIsSent(true);
-      toast.success(
-        "Magic link sent! Check your email to complete sign in.",
-      );
+      toast.success("Magic link sent! Check your email to complete sign in.");
     } catch (error) {
       console.error("Magic link error:", error);
       toast.error(
@@ -55,8 +53,8 @@ export function MagicLinkDemo() {
           Check your email!
         </h3>
         <p className="text-sm text-green-700 dark:text-green-300">
-          We've sent a magic link to <strong>{email}</strong>. Click the link
-          in the email to sign in.
+          We've sent a magic link to <strong>{email}</strong>. Click the link in
+          the email to sign in.
         </p>
         <Button
           onClick={() => {
@@ -100,9 +98,9 @@ export function MagicLinkDemo() {
         </Button>
       </form>
 
-      <p className="text-xs text-muted-foreground text-center">
-        By signing in, you agree to receive emails from us. The link will
-        expire in 5 minutes.
+      <p className="text-center text-xs text-muted-foreground">
+        By signing in, you agree to receive emails from us. The link will expire
+        in 5 minutes.
       </p>
     </div>
   );

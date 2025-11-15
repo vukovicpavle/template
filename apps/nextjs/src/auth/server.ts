@@ -16,12 +16,9 @@ const baseUrl =
       : "http://localhost:3000";
 
 // Create the Magic Link email sender
-const magicLinkEmailSender = createMagicLinkEmailSender(
-  async (options) => {
-    await sendEmail(options);
-  },
-  env.MAGIC_LINK_FROM_EMAIL ?? "noreply@yourdomain.com",
-);
+const magicLinkEmailSender = createMagicLinkEmailSender(async (options) => {
+  await sendEmail(options);
+}, env.MAGIC_LINK_FROM_EMAIL ?? "noreply@yourdomain.com");
 
 export const auth = initAuth({
   baseUrl,
