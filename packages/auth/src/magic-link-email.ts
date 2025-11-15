@@ -65,7 +65,7 @@ export function createMagicLinkEmailSender(
     text: string;
     from: string;
   }) => Promise<void> | void,
-  fromEmail: string = "noreply@yourdomain.com",
+  fromEmail = "noreply@yourdomain.com",
 ) {
   return async ({ to, magicLink }: SendMagicLinkEmailOptions) => {
     const html = generateMagicLinkEmailHtml(magicLink);

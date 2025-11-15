@@ -34,7 +34,7 @@ export function initAuth(options: {
       magicLink({
         sendMagicLink:
           options.sendMagicLink ??
-          (async () => {
+          (() => {
             console.warn("Magic Link email sender not configured");
           }),
       }),
