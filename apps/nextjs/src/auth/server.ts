@@ -3,6 +3,8 @@ import "server-only";
 import { headers } from "next/headers";
 
 import { initAuth, sendPhoneOTP } from "@acme/auth";
+import { createMagicLinkEmailSender } from "@acme/auth/magic-link-email";
+import { sendEmail } from "@acme/email";
 
 import { env } from "~/env";
 
@@ -13,6 +15,11 @@ const baseUrl =
       ? `https://${env.VERCEL_URL}`
       : "http://localhost:3000";
 
+// Create the Magic Link email sender
+const magicLinkEmailSender = createMagicLinkEmailSender(async (options) => {
+  await sendEmail(options);
+}, env.MAGIC_LINK_FROM_EMAIL ?? "noreply@yourdomain.com");
+
 export const auth = initAuth({
   baseUrl,
   productionUrl: `https://${env.VERCEL_PROJECT_PRODUCTION_URL ?? "turbo.t3.gg"}`,
@@ -22,6 +29,13 @@ export const auth = initAuth({
       twilioAccountSid: env.TWILIO_ACCOUNT_SID,
       twilioAuthToken: env.TWILIO_AUTH_TOKEN,
       twilioPhoneNumber: env.TWILIO_PHONE_NUMBER,
+    });
+  },
+  sendMagicLink: async (data) => {
+    await magicLinkEmailSender({
+      to: data.email,
+      magicLink: data.url,
+      token: data.token,
     });
   },
 });

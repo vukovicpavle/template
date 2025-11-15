@@ -21,6 +21,7 @@ export const env = createEnv({
     TWILIO_ACCOUNT_SID: z.string().optional(),
     TWILIO_AUTH_TOKEN: z.string().optional(),
     TWILIO_PHONE_NUMBER: z.string().optional(),
+    MAGIC_LINK_FROM_EMAIL: z.string().email().optional(),
   },
 
   /**

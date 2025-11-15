@@ -2,7 +2,7 @@ import type { BetterAuthOptions } from "better-auth";
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { oAuthProxy, phoneNumber } from "better-auth/plugins";
+import { magicLink, oAuthProxy, phoneNumber } from "better-auth/plugins";
 
 import { db } from "@acme/db/client";
 
@@ -13,6 +13,11 @@ export function initAuth(options: {
   productionUrl: string;
   secret: string | undefined;
   sendOTP?: (data: { phoneNumber: string; code: string }) => Promise<void>;
+  sendMagicLink?: (data: {
+    email: string;
+    url: string;
+    token: string;
+  }) => Promise<void> | void;
 }) {
   const config = {
     database: drizzleAdapter(db, {
@@ -49,6 +54,13 @@ export function initAuth(options: {
          * 6-digit OTP code
          */
         otpLength: 6,
+      }),
+      magicLink({
+        sendMagicLink:
+          options.sendMagicLink ??
+          (() => {
+            console.warn("Magic Link email sender not configured");
+          }),
       }),
     ],
     trustedOrigins: ["expo://"],

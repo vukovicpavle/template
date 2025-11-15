@@ -2,6 +2,7 @@ import { FaHeart, FaRocket, FaStar } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi2";
 
 import type { Locale } from "~/i18n";
+import { MagicLinkDemo } from "~/components/magic-link-demo";
 import { StoreDemo } from "~/components/store-demo";
 import { getTranslations } from "~/i18n";
 import { HydrateClient, prefetch, trpc } from "~/trpc/server";
@@ -32,6 +33,7 @@ export default async function HomePage({ params }: Props) {
               <HiSparkles className="h-8 w-8 text-purple-500" />
             </div>
           </div>
+          <MagicLinkDemo />
           <StoreDemo />
         </div>
       </main>
