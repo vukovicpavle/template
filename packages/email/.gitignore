@@ -1,0 +1,12 @@
+# Build output
+dist/
+*.tsbuildinfo
+
+# Cache
+.cache/
+
+# Dependencies
+node_modules/
+
+# Test files
+coverage/
