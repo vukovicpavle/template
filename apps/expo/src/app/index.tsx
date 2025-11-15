@@ -1,6 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
+import { GoogleSignInButton } from "~/components/google-auth";
 import { useTranslation } from "~/hooks/useTranslation";
 import { RNReusablesDemo } from "../components/rn-reusables-demo";
 import { StoreDemo } from "../components/store-demo";
@@ -24,6 +25,9 @@ export default function Index() {
           <Text className="text-center text-sm text-gray-500">
             {t("home.description")}
           </Text>
+        </View>
+        <View className="w-full max-w-sm px-4">
+          <GoogleSignInButton />
         </View>
         <StoreDemo />
         <View className="w-full border-t border-border pt-8">
