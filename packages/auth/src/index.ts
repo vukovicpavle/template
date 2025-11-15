@@ -10,13 +10,26 @@ export function initAuth(options: {
   baseUrl: string;
   productionUrl: string;
   secret: string | undefined;
+  googleClientId?: string;
+  googleClientSecret?: string;
 }) {
+  const socialProviders: BetterAuthOptions["socialProviders"] = {};
+
+  // Only add Google provider if credentials are provided
+  if (options.googleClientId && options.googleClientSecret) {
+    socialProviders.google = {
+      clientId: options.googleClientId,
+      clientSecret: options.googleClientSecret,
+    };
+  }
+
   const config = {
     database: drizzleAdapter(db, {
       provider: "pg",
     }),
     baseURL: options.baseUrl,
     secret: options.secret,
+    socialProviders,
     plugins: [
       oAuthProxy({
         /**
