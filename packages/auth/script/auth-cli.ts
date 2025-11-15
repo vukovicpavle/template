@@ -23,4 +23,7 @@ export const auth = initAuth({
   productionUrl: "http://localhost:3000",
   secret: "secret",
   emailFrom: "noreply@example.com",
+  sendMagicLink: async () => {
+    // No-op for CLI schema generation
+  },
 });

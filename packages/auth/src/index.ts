@@ -2,16 +2,30 @@ import type { BetterAuthOptions } from "better-auth";
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { emailOTP, oAuthProxy } from "better-auth/plugins";
+import {
+  emailOTP,
+  magicLink,
+  oAuthProxy,
+  phoneNumber,
+  username,
+} from "better-auth/plugins";
 
 import { db } from "@acme/db/client";
 import { sendEmail } from "@acme/email";
+
+export { sendPhoneOTP } from "./phone";
 
 export function initAuth(options: {
   baseUrl: string;
   productionUrl: string;
   secret: string | undefined;
   emailFrom?: string;
+  sendOTP?: (data: { phoneNumber: string; code: string }) => Promise<void>;
+  sendMagicLink?: (data: {
+    email: string;
+    url: string;
+    token: string;
+  }) => Promise<void> | void;
 }) {
   const config = {
     database: drizzleAdapter(db, {
@@ -20,6 +34,7 @@ export function initAuth(options: {
     baseURL: options.baseUrl,
     secret: options.secret,
     plugins: [
+      username(),
       oAuthProxy({
         /**
          * Auto-inference blocked by https://github.com/better-auth/better-auth/pull/2891
@@ -72,6 +87,34 @@ export function initAuth(options: {
         expiresIn: 300, // 5 minutes
         sendVerificationOnSignUp: false,
         disableSignUp: false,
+      }),
+      phoneNumber({
+        /**
+         * Send OTP code to the user's phone number
+         * In development, logs to console. In production, should use SMS provider (e.g., Twilio)
+         */
+        sendOTP:
+          options.sendOTP ??
+          (({ phoneNumber, code }) => {
+            console.log(`[Phone Auth] Sending OTP to ${phoneNumber}: ${code}`);
+            // In production, integrate with SMS provider like Twilio
+            // Example: await twilioClient.messages.create({ to: phoneNumber, from: TWILIO_PHONE, body: `Your verification code is: ${code}` });
+          }),
+        /**
+         * OTP expires after 5 minutes (300 seconds)
+         */
+        expiresIn: 300,
+        /**
+         * 6-digit OTP code
+         */
+        otpLength: 6,
+      }),
+      magicLink({
+        sendMagicLink:
+          options.sendMagicLink ??
+          (() => {
+            console.warn("Magic Link email sender not configured");
+          }),
       }),
     ],
     trustedOrigins: ["expo://"],
