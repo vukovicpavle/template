@@ -17,6 +17,7 @@ export const env = createEnv({
    */
   server: {
     POSTGRES_URL: z.string().url(),
+    MAGIC_LINK_FROM_EMAIL: z.string().email().optional(),
   },
 
   /**

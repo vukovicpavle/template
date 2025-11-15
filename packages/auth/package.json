@@ -6,6 +6,7 @@
     ".": "./src/index.ts",
     "./middleware": "./src/middleware.ts",
     "./client": "./src/client.ts",
+    "./magic-link-email": "./src/magic-link-email.ts",
     "./env": "./env.ts"
   },
   "license": "MIT",

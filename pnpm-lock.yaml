@@ -226,6 +226,9 @@ importers:
       '@acme/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@acme/email':
+        specifier: workspace:*
+        version: link:../../packages/email
       '@acme/store':
         specifier: workspace:*
         version: link:../../packages/store

@@ -2,7 +2,7 @@ import type { BetterAuthOptions } from "better-auth";
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { oAuthProxy } from "better-auth/plugins";
+import { magicLink, oAuthProxy } from "better-auth/plugins";
 
 import { db } from "@acme/db/client";
 
@@ -10,6 +10,11 @@ export function initAuth(options: {
   baseUrl: string;
   productionUrl: string;
   secret: string | undefined;
+  sendMagicLink?: (data: {
+    email: string;
+    url: string;
+    token: string;
+  }) => Promise<void> | void;
 }) {
   const config = {
     database: drizzleAdapter(db, {
@@ -26,6 +31,13 @@ export function initAuth(options: {
         productionURL: options.productionUrl,
       }),
       expo(),
+      magicLink({
+        sendMagicLink:
+          options.sendMagicLink ??
+          (async () => {
+            console.warn("Magic Link email sender not configured");
+          }),
+      }),
     ],
     trustedOrigins: ["expo://"],
   } satisfies BetterAuthOptions;
