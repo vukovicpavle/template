@@ -1,14 +1,22 @@
-import { Pressable, Text } from "react-native";
+import { Alert, Pressable, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 import { authClient } from "~/utils/auth";
 
 export function GoogleSignInButton() {
   const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-      callbackURL: "/",
-    });
+    try {
+      await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+    } catch (error) {
+      console.error("Google sign-in failed", error);
+      Alert.alert(
+        "Sign-in failed",
+        "Unable to sign in with Google. Please try again.",
+      );
+    }
   };
 
   return (
