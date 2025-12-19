@@ -1,4 +1,5 @@
 import {
+  emailOTPClient,
   magicLinkClient,
   phoneNumberClient,
   usernameClient,
@@ -6,7 +7,12 @@ import {
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-  plugins: [usernameClient(), magicLinkClient(), phoneNumberClient()],
+  plugins: [
+    usernameClient(),
+    magicLinkClient(),
+    phoneNumberClient(),
+    emailOTPClient(),
+  ],
 });
 
-export { magicLinkClient, phoneNumberClient, usernameClient };
+export { emailOTPClient, magicLinkClient, phoneNumberClient, usernameClient };

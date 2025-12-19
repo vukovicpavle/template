@@ -1,6 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import { expoClient } from "@better-auth/expo/client";
 import {
+  emailOTPClient,
   magicLinkClient,
   phoneNumberClient,
   usernameClient,
@@ -20,5 +21,6 @@ export const authClient = createAuthClient({
     }),
     phoneNumberClient(),
     magicLinkClient(),
+    emailOTPClient(),
   ],
 });
