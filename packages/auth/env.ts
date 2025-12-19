@@ -11,6 +11,8 @@ export function authEnv() {
       NODE_ENV: z.enum(["development", "production"]).optional(),
       GOOGLE_CLIENT_ID: z.string().optional(),
       GOOGLE_CLIENT_SECRET: z.string().optional(),
+      AUTH_APPLE_CLIENT_ID: z.string().optional(),
+      AUTH_APPLE_CLIENT_SECRET: z.string().optional(),
     },
     experimental__runtimeEnv: {},
     skipValidation:

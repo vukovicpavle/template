@@ -28,14 +28,24 @@ export function initAuth(options: {
   }) => Promise<void> | void;
   googleClientId?: string;
   googleClientSecret?: string;
+  apple?: {
+    clientId: string;
+    clientSecret: string;
+  };
 }) {
   const socialProviders: BetterAuthOptions["socialProviders"] = {};
 
-  // Only add Google provider if credentials are provided
   if (options.googleClientId && options.googleClientSecret) {
     socialProviders.google = {
       clientId: options.googleClientId,
       clientSecret: options.googleClientSecret,
+    };
+  }
+
+  if (options.apple) {
+    socialProviders.apple = {
+      clientId: options.apple.clientId,
+      clientSecret: options.apple.clientSecret,
     };
   }
 
