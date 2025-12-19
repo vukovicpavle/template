@@ -172,7 +172,7 @@ By using the proxy plugin, the Next.js apps will forward any auth requests to th
 
 You can alternatively add your local IP (e.g. `192.168.x.y:$PORT`) to your OAuth provider. This may not be as reliable as your local IP may change when you change networks. Some OAuth providers may also only support a single callback URL for each app making this approach unviable for some providers (e.g. GitHub).
 
-### 5. Configuring Google Authentication
+### Configuring Google Authentication
 
 This project includes Google OAuth authentication using Better Auth. To enable it:
 
