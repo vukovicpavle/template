@@ -23,6 +23,12 @@ This directory contains comprehensive documentation for the T3 Turbo monorepo, i
   - Commit guidelines
   - Pull request process
   - Troubleshooting
+- **[PHONE_AUTHENTICATION.md](./PHONE_AUTHENTICATION.md)** - Phone number authentication guide
+  - Configuration and setup
+  - Usage examples (Next.js and Expo)
+  - Twilio SMS provider setup
+  - Security best practices
+  - Troubleshooting
 
 ### Examples and Templates
 

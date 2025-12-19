@@ -6,6 +6,8 @@
 > Look out for bugs as we're working through the last issues,
 > especially, the oauth proxy might not play very nice with Expo
 > so you might need to disable that in [`@acme/auth`](./packages/auth/src/index.ts)
+>
+> **Phone number authentication is now available!** See the [Phone Authentication Guide](./docs/PHONE_AUTHENTICATION.md) for setup and usage instructions.
 
 ## Installation
 
@@ -34,6 +36,7 @@ This repository includes comprehensive documentation for both AI agents and huma
 - **[docs/README.md](./docs/README.md)** - Documentation index and quick links
 - **[docs/AI_CONTEXT.md](./docs/AI_CONTEXT.md)** - AI agent context and coding conventions
 - **[docs/DEVELOPER_GUIDE.md](./docs/DEVELOPER_GUIDE.md)** - Developer guide and workflow
+- **[docs/PHONE_AUTHENTICATION.md](./docs/PHONE_AUTHENTICATION.md)** - Phone number authentication setup and usage
 - **[docs/examples/](./docs/examples/)** - PR templates, module layouts, and prompt snippets
 
 The project also includes:

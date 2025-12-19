@@ -4,8 +4,31 @@ import { env } from "../env";
 
 /**
  * Resend client instance configured with API key from environment variables
+ * Lazily initialized to avoid errors during build time
  */
-export const resend = new Resend(env.RESEND_API_KEY);
+let resendInstance: Resend | null = null;
+
+function getResend(): Resend {
+  if (!resendInstance) {
+    if (!env.RESEND_API_KEY) {
+      throw new Error(
+        "RESEND_API_KEY is not configured. Please set it in your environment variables.",
+      );
+    }
+    resendInstance = new Resend(env.RESEND_API_KEY);
+  }
+  return resendInstance;
+}
+
+/**
+ * Get the Resend client instance (for advanced usage)
+ * @throws {Error} If RESEND_API_KEY is not configured
+ */
+export const resend = new Proxy({} as Resend, {
+  get(target, prop) {
+    return getResend()[prop as keyof Resend];
+  },
+});
 
 /**
  * Options for sending an email

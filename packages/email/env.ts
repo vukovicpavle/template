@@ -3,7 +3,7 @@ import { z } from "zod/v4";
 
 export const env = createEnv({
   server: {
-    RESEND_API_KEY: z.string().min(1),
+    RESEND_API_KEY: z.string().min(1).optional(),
   },
   client: {},
   experimental__runtimeEnv: {},

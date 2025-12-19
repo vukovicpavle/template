@@ -3,6 +3,7 @@ import { HiSparkles } from "react-icons/hi2";
 
 import type { Locale } from "~/i18n";
 import { GoogleSignInButton } from "~/components/google-auth";
+import { MagicLinkDemo } from "~/components/magic-link-demo";
 import { StoreDemo } from "~/components/store-demo";
 import { getTranslations } from "~/i18n";
 import { HydrateClient, prefetch, trpc } from "~/trpc/server";
@@ -36,6 +37,7 @@ export default async function HomePage({ params }: Props) {
           <div className="w-full max-w-sm">
             <GoogleSignInButton />
           </div>
+          <MagicLinkDemo />
           <StoreDemo />
         </div>
       </main>
