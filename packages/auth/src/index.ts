@@ -26,25 +26,36 @@ export function initAuth(options: {
     url: string;
     token: string;
   }) => Promise<void> | void;
+  googleClientId?: string;
+  googleClientSecret?: string;
   apple?: {
     clientId: string;
     clientSecret: string;
   };
 }) {
+  const socialProviders: BetterAuthOptions["socialProviders"] = {};
+
+  if (options.googleClientId && options.googleClientSecret) {
+    socialProviders.google = {
+      clientId: options.googleClientId,
+      clientSecret: options.googleClientSecret,
+    };
+  }
+
+  if (options.apple) {
+    socialProviders.apple = {
+      clientId: options.apple.clientId,
+      clientSecret: options.apple.clientSecret,
+    };
+  }
+
   const config = {
     database: drizzleAdapter(db, {
       provider: "pg",
     }),
     baseURL: options.baseUrl,
     secret: options.secret,
-    socialProviders: {
-      apple: options.apple
-        ? {
-            clientId: options.apple.clientId,
-            clientSecret: options.apple.clientSecret,
-          }
-        : undefined,
-    },
+    socialProviders,
     plugins: [
       username(),
       oAuthProxy({

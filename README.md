@@ -172,6 +172,52 @@ By using the proxy plugin, the Next.js apps will forward any auth requests to th
 
 You can alternatively add your local IP (e.g. `192.168.x.y:$PORT`) to your OAuth provider. This may not be as reliable as your local IP may change when you change networks. Some OAuth providers may also only support a single callback URL for each app making this approach unviable for some providers (e.g. GitHub).
 
+### Configuring Google Authentication
+
+This project includes Google OAuth authentication using Better Auth. To enable it:
+
+1. **Create a Google OAuth 2.0 Client:**
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select an existing one
+   - Navigate to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "OAuth 2.0 Client ID"
+   - Configure the OAuth consent screen if you haven't already
+   - For Application type, select "Web application"
+
+2. **Configure Authorized Redirect URIs:**
+   
+   For **development**:
+   ```
+   http://localhost:3000/api/auth/callback/google
+   ```
+
+   For **production** (replace with your domain):
+   ```
+   https://yourdomain.com/api/auth/callback/google
+   ```
+
+   For **Expo/Mobile** (if using the OAuth proxy):
+   ```
+   https://yourdomain.com/api/auth/callback/google
+   expo://api/auth/callback/google
+   ```
+
+3. **Add Credentials to Environment Variables:**
+   
+   Copy your Client ID and Client Secret from Google Cloud Console and add them to your `.env` file:
+   ```bash
+   GOOGLE_CLIENT_ID="your-client-id.apps.googleusercontent.com"
+   GOOGLE_CLIENT_SECRET="your-client-secret"
+   ```
+
+4. **Verify Configuration:**
+   
+   The Google provider is automatically enabled when both `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are set. The sign-in buttons are already integrated into:
+   - Next.js app: `apps/nextjs/src/components/google-auth.tsx`
+   - Expo app: `apps/expo/src/components/google-auth.tsx`
+
+For more information about Google OAuth configuration, see the [Better Auth Google documentation](https://www.better-auth.com/docs/authentication/google).
+
 ### 5a. When it's time to add a new UI component
 
 Run the `ui-add` script to add a new UI component using the interactive `shadcn/ui` CLI:
