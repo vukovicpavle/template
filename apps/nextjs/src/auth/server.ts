@@ -39,6 +39,13 @@ export const auth = initAuth({
       token: data.token,
     });
   },
+  apple:
+    env.AUTH_APPLE_CLIENT_ID && env.AUTH_APPLE_CLIENT_SECRET
+      ? {
+          clientId: env.AUTH_APPLE_CLIENT_ID,
+          clientSecret: env.AUTH_APPLE_CLIENT_SECRET,
+        }
+      : undefined,
 });
 
 export const getSession = async () =>

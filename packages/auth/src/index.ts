@@ -26,6 +26,10 @@ export function initAuth(options: {
     url: string;
     token: string;
   }) => Promise<void> | void;
+  apple?: {
+    clientId: string;
+    clientSecret: string;
+  };
 }) {
   const config = {
     database: drizzleAdapter(db, {
@@ -33,6 +37,14 @@ export function initAuth(options: {
     }),
     baseURL: options.baseUrl,
     secret: options.secret,
+    socialProviders: {
+      apple: options.apple
+        ? {
+            clientId: options.apple.clientId,
+            clientSecret: options.apple.clientSecret,
+          }
+        : undefined,
+    },
     plugins: [
       username(),
       oAuthProxy({

@@ -26,4 +26,8 @@ export const auth = initAuth({
   sendMagicLink: async () => {
     // No-op for CLI schema generation
   },
+  apple: {
+    clientId: "com.example.app",
+    clientSecret: "secret",
+  },
 });
