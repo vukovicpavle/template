@@ -15,7 +15,9 @@ import { db } from "@acme/db/client";
 
 interface TRPCContext {
   authApi: {
-    getSession: (opts: { headers: Headers }) => Promise<{ user?: Record<string, unknown> | null } | null>;
+    getSession: (opts: {
+      headers: Headers;
+    }) => Promise<{ user?: Record<string, unknown> | null } | null>;
   };
   session: { user?: Record<string, unknown> | null } | null;
   db: typeof db;
