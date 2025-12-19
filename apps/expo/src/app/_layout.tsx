@@ -14,20 +14,54 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/*
-          The Stack component displays the current page.
-          It also allows you to configure your screens 
-        */}
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#f472b6",
+            backgroundColor: colorScheme === "dark" ? "#09090B" : "#f472b6",
           },
           contentStyle: {
-            backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
+            backgroundColor: colorScheme === "dark" ? "#09090B" : "#FFFFFF",
           },
         }}
-      />
+      >
+        {/* Root level screens */}
+        <Stack.Screen name="index" options={{ title: "Home" }} />
+        <Stack.Screen name="splash" options={{ title: "Splash" }} />
+        <Stack.Screen
+          name="language-selection"
+          options={{ title: "Language Selection" }}
+        />
+        <Stack.Screen name="aux" options={{ title: "Auxiliary" }} />
+        <Stack.Screen name="onboarding" options={{ title: "Onboarding" }} />
+
+        {/* Route groups */}
+        <Stack.Screen
+          name="(auth)"
+          options={{ headerShown: false, title: "Authentication" }}
+        />
+        <Stack.Screen
+          name="(main)"
+          options={{ headerShown: false, title: "Main" }}
+        />
+        <Stack.Screen
+          name="(settings)"
+          options={{ headerShown: false, title: "Settings" }}
+        />
+        <Stack.Screen
+          name="(legal)"
+          options={{ headerShown: false, title: "Legal" }}
+        />
+
+        {/* Top-level feature screens */}
+        <Stack.Screen
+          name="notifications"
+          options={{ headerShown: false, title: "Notifications" }}
+        />
+        <Stack.Screen
+          name="search"
+          options={{ headerShown: false, title: "Search" }}
+        />
+      </Stack>
       <StatusBar />
     </QueryClientProvider>
   );
