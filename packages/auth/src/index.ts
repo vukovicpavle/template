@@ -46,14 +46,14 @@ export function initAuth(options: {
       emailOTP({
         async sendVerificationOTP({ email, otp, type }) {
           const fromEmail = options.emailFrom ?? "noreply@example.com";
-          
+
           // Generate appropriate email subject and body based on type
           const subjects = {
             "sign-in": "Your Sign-In Code",
             "email-verification": "Verify Your Email",
             "forget-password": "Reset Your Password",
           };
-          
+
           const messages = {
             "sign-in": `Your one-time password is: <strong>${otp}</strong>. This code will expire in 5 minutes.`,
             "email-verification": `Please use the following code to verify your email: <strong>${otp}</strong>. This code will expire in 5 minutes.`,
