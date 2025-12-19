@@ -8,10 +8,18 @@ import { authClient } from "~/auth/client";
 
 export function GoogleSignInButton() {
   const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-      callbackURL: "/",
-    });
+    try {
+      await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+    } catch (error) {
+      // Log for debugging while avoiding exposing sensitive information to users
+      console.error("Google sign-in failed", error);
+      if (typeof window !== "undefined") {
+        window.alert("Unable to sign in with Google. Please try again.");
+      }
+    }
   };
 
   return (
